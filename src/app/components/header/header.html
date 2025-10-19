@@ -1,1 +1,11 @@
-<p>header works!</p>
+<header class="header">
+  <div class="logo">
+    <span class="logo-icon">🔮</span>
+    <span class="logo-text">{{ appName }}</span>
+  </div>
+  <nav class="nav">
+    <a [routerLink]="['/']" class="nav-link">Home</a>
+    <a [routerLink]="['/cartas']" class="nav-link">Conheça as Cartas</a>
+    <a [routerLink]="['/tiragem']" class="nav-link">Tiragem de 3 Cartas</a>
+  </nav>
+</header>
