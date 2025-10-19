@@ -1,16 +1,27 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import { Card, TAROT_CARDS } from '../data/tarot-cards';
 
-import { Card } from './card';
+@Injectable({
+  providedIn: 'root'
+})
+export class CardService {
 
-describe('Card', () => {
-  let service: Card;
+  private allCards: Card[] = TAROT_CARDS;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(Card);
-  });
+  constructor() { }
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  getAllCards(): Card[] {
+    return this.allCards;
+  }
+
+  getCardsByName(searchTerm: string): Card[] {
+    if (!searchTerm) {
+      return this.allCards;
+    }
+    const term = searchTerm.toLowerCase();
+    return this.allCards.filter(card => 
+      card.name.toLowerCase().includes(term) ||
+      card.description.toLowerCase().includes(term)
+    );
+  }
+}
