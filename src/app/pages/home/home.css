@@ -3,71 +3,46 @@
 .home-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 30px 20px; /* Ajuste o padding se necessário */
 }
 
-.search-bar {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto 40px auto;
-  display: block;
+.page-title { /* Certifique-se que esta classe está no seu h1 */
+  font-size: 36px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  color: #f0f0f0;
 }
 
-.search-bar input {
+.search-box { /* Estilo para a caixa da busca */
+  margin-bottom: 40px; /* Espaçamento abaixo da busca */
+}
+
+.search-input { /* Estilo para o campo de input */
   width: 100%;
   padding: 15px 20px;
-  border: 1px solid #444;
+  font-size: 18px;
+  border: none;
   border-radius: 8px;
-  background-color: #1a1a2e;
-  color: #ccc;
-  font-size: 16px;
+  background-color: #2a2a3e; /* Cor do campo de busca conforme a imagem */
+  color: #f0f0f0;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+}
+
+.search-input::placeholder {
+  color: #888;
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Responsivo para 6 colunas ou menos */
+  gap: 20px;
 }
 
 .no-results {
+  grid-column: 1 / -1;
   text-align: center;
   color: #ccc;
-  font-size: 1.2em;
-  margin-top: 50px;
-}/* src/app/pages/home/home.component.css */
-
-.home-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.search-bar {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto 40px auto;
-  display: block;
-}
-
-.search-bar input {
-  width: 100%;
-  padding: 15px 20px;
-  border: 1px solid #444;
-  border-radius: 8px;
-  background-color: #1a1a2e;
-  color: #ccc;
-  font-size: 16px;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 30px;
-}
-
-.no-results {
-  text-align: center;
-  color: #ccc;
-  font-size: 1.2em;
-  margin-top: 50px;
+  font-size: 18px;
+  padding: 50px 0;
 }

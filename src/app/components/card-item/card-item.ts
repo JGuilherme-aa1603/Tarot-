@@ -13,5 +13,5 @@ export class CardItemComponent {
   
   @Input({ required: true }) card!: Card;
   
-  imagePathBase = 'assets/images/tarot/';
+  imagePathBase = 'assets/imagens/tarot/';
 }
