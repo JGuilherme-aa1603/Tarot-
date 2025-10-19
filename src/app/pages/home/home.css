@@ -1,0 +1,73 @@
+/* src/app/pages/home/home.component.css */
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  display: block;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #1a1a2e;
+  color: #ccc;
+  font-size: 16px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 30px;
+}
+
+.no-results {
+  text-align: center;
+  color: #ccc;
+  font-size: 1.2em;
+  margin-top: 50px;
+}/* src/app/pages/home/home.component.css */
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  display: block;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #1a1a2e;
+  color: #ccc;
+  font-size: 16px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 30px;
+}
+
+.no-results {
+  text-align: center;
+  color: #ccc;
+  font-size: 1.2em;
+  margin-top: 50px;
+}

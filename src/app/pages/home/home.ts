@@ -10,7 +10,7 @@ import { CardItemComponent } from '../../components/card-item/card-item'; // <--
   standalone: true,
   imports: [CommonModule, CardItemComponent, FormsModule], // <-- FormsModule E CardItemComponent
   templateUrl: './home.html',
-  styleUrl: './home.scss'
+  styleUrl: './home.css'
 })
 export class HomeComponent implements OnInit {
 
