@@ -25,7 +25,7 @@ export const TAROT_CARDS: Card[] = [
   },
   {
     id: 2,
-    name: 'Sacerdotisa',
+    name: 'A Alta Sacerdotisa',
     roman: 'II',
     image: 'sacerdotisa.png', // <-- MUDANÇA PARA .png
     description: 'Intuição, mistério, inconsciente, sabedoria interior.',
