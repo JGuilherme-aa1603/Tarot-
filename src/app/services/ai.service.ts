@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import OpenAI from 'openai';
-import { environment } from '../../environments/environment';
 import { Card } from '../data/tarot-cards';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +10,16 @@ export class AiService {
   private openai: OpenAI;
 
   constructor() {
+    // A chave é carregada do arquivo environment.ts (gerado a partir do .env)
+    const apiKey = environment.openaiApiKey;
+    
+    if (!apiKey) {
+      console.error('❌ OPENAI_API_KEY não encontrada. Certifique-se de ter um arquivo .env na raiz do projeto e rode: npm run generate-env');
+      throw new Error('OPENAI_API_KEY não configurada. Crie um arquivo .env baseado em .env.example e rode npm run generate-env');
+    }
+
     this.openai = new OpenAI({
-      apiKey: environment.openaiApiKey,
+      apiKey,
       dangerouslyAllowBrowser: true,
     });
   }
