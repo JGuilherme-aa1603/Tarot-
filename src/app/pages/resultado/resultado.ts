@@ -68,6 +68,6 @@ export class ResultadoComponent implements OnInit {
   }
 
   getCardPosition(index: number): string {
-    return ['Passado', 'Presente', 'Futuro'][index];
+    return [`Carta 1`, `Carta 2`, `Carta 3`][index] || `Carta ${index + 1}`;
   }
 }

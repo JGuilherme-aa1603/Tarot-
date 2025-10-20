@@ -13,154 +13,219 @@ export const TAROT_CARDS: Card[] = [
     id: 0,
     name: 'Louco',
     roman: '0',
-    image: 'louco.png', // <-- MUDANÇA PARA .png
+    image: 'louco.png',
     description: 'Novos inícios, inocência, espontaneidade, livre-espírito.',
   },
   {
     id: 1,
     name: 'Mago',
     roman: 'I',
-    image: 'mago.png', // <-- MUDANÇA PARA .png
+    image: 'mago.png',
     description: 'Poder, habilidade, concentração, ação, recursos.',
   },
   {
     id: 2,
-    name: 'A Alta Sacerdotisa',
+    name: 'Sacerdotisa',
     roman: 'II',
-    image: 'sacerdotisa.png', // <-- MUDANÇA PARA .png
+    image: 'sacerdotisa.png',
     description: 'Intuição, mistério, inconsciente, sabedoria interior.',
   },
   {
     id: 3,
     name: 'Imperatriz',
     roman: 'III',
-    image: 'imperatriz.png', // <-- MUDANÇA PARA .png
+    image: 'imperatriz.png',
     description: 'Feminilidade, beleza, natureza, abundância, maternidade.',
   },
   {
     id: 4,
     name: 'Imperador',
     roman: 'IV',
-    image: 'imperador.png', // <-- MUDANÇA PARA .png (Nome de arquivo "emperador.png" na sua pasta parece ser erro de digitação, usei o correto aqui)
+    image: 'imperador.png',
     description: 'Autoridade, estrutura, controle, paternidade.',
   },
   {
     id: 5,
     name: 'Hierofante',
     roman: 'V',
-    image: 'hierofante.png', // <-- MUDANÇA PARA .png
+    image: 'hierofante.png',
     description: 'Tradição, conformidade, moralidade, crenças.',
   },
   {
     id: 6,
     name: 'Enamorados',
     roman: 'VI',
-    image: 'enamorados.png', // <-- MUDANÇA PARA .png
+    image: 'enamorados.png',
     description: 'União, parceria, escolha, alinhamento de valores.',
   },
   {
     id: 7,
     name: 'Carro',
     roman: 'VII',
-    image: 'carro.png', // <-- MUDANÇA PARA .png
+    image: 'carro.png',
     description: 'Vitória, força de vontade, movimento, autocontrole.',
   },
   {
     id: 8,
     name: 'Justiça',
     roman: 'VIII',
-    image: 'justica.png', // <-- MUDANÇA PARA .png
+    image: 'justica.png',
     description: 'Justiça, equidade, verdade, causa e efeito, legalidade.',
   },
   {
     id: 9,
     name: 'Eremita',
     roman: 'IX',
-    image: 'eremita.png', // <-- MUDANÇA PARA .png
+    image: 'eremita.png',
     description: 'Solidão, introspecção, busca interior, guia, prudência.',
   },
   {
     id: 10,
     name: 'Roda da Fortuna',
     roman: 'X',
-    image: 'roda_da_fortuna.png', // <-- MUDANÇA PARA .png (e '_' se seus arquivos tiverem)
+    image: 'roda_da_fortuna.png',
     description: 'Mudança de sorte, ciclos, destino, acaso.',
   },
   {
     id: 11,
     name: 'Força',
     roman: 'XI',
-    image: 'forca.png', // <-- MUDANÇA PARA .png
+    image: 'forca.png',
     description: 'Força interior, coragem, paciência, compaixão.',
   },
   {
     id: 12,
     name: 'Pendurado',
     roman: 'XII',
-    image: 'pendurado.png', // <-- MUDANÇA PARA .png
+    image: 'pendurado.png',
     description: 'Sacrifício, nova perspectiva, suspensão, rendição.',
   },
   {
     id: 13,
     name: 'Morte',
     roman: 'XIII',
-    image: 'morte.png', // <-- MUDANÇA PARA .png
+    image: 'morte.png',
     description: 'Fim de um ciclo, transformação, renovação, transição.',
   },
   {
     id: 14,
     name: 'Temperança',
     roman: 'XIV',
-    image: 'temperanca.png', // <-- MUDANÇA PARA .png
+    image: 'temperanca.png',
     description: 'Moderação, equilíbrio, harmonia, paciência, propósito.',
   },
   {
     id: 15,
     name: 'Diabo',
     roman: 'XV',
-    image: 'diabo.png', // <-- MUDANÇA PARA .png
+    image: 'diabo.png',
     description: 'Escravidão, vício, materialismo, sombra, tentação.',
   },
   {
     id: 16,
     name: 'Torre',
     roman: 'XVI',
-    image: 'torre.png', // <-- MUDANÇA PARA .png
+    image: 'torre.png',
     description: 'Colapso, mudança súbita, revelação, caos.',
   },
   {
     id: 17,
     name: 'Estrela',
     roman: 'XVII',
-    image: 'estrela.png', // <-- MUDANÇA PARA .png
+    image: 'estrela.png',
     description: 'Esperança, fé, inspiração, renovação espiritual.',
   },
   {
     id: 18,
     name: 'Lua',
     roman: 'XVIII',
-    image: 'lua.png', // <-- MUDANÇA PARA .png
+    image: 'lua.png',
     description: 'Ilusão, medo, ansiedade, subconsciente, intuição.',
   },
   {
     id: 19,
     name: 'Sol',
     roman: 'XIX',
-    image: 'sol.png', // <-- MUDANÇA PARA .png
+    image: 'sol.png',
     description: 'Sucesso, alegria, vitalidade, celebração, otimismo.',
   },
   {
     id: 20,
     name: 'Julgamento',
     roman: 'XX',
-    image: 'julgamento.png', // <-- MUDANÇA PARA .png
+    image: 'julgamento.png',
     description: 'Avaliação, despertar, perdão, renovação, segunda chance.',
   },
   {
     id: 21,
     name: 'Mundo',
     roman: 'XXI',
-    image: 'mundo.png', // <-- MUDANÇA PARA .png
+    image: 'mundo.png',
     description: 'Realização, conclusão, totalidade, viagem, sucesso.',
   },
+
+  // ---- Arcanos Menores ----
+  // PAUS
+  { id: 22, name: 'Ás de Paus', roman: '', image: 'as_paus.png', description: 'Inspiração, novos projetos, entusiasmo, energia criativa.' },
+  { id: 23, name: 'Dois de Paus', roman: '', image: 'dois_paus.png', description: 'Planejamento, decisões, visão de futuro, progresso.' },
+  { id: 24, name: 'Três de Paus', roman: '', image: 'tres_paus.png', description: 'Expansão, exploração, liderança, oportunidades.' },
+  { id: 25, name: 'Quatro de Paus', roman: '', image: 'quatro_paus.png', description: 'Celebração, harmonia, lar, conquistas compartilhadas.' },
+  { id: 26, name: 'Cinco de Paus', roman: '', image: 'cinco_paus.png', description: 'Conflito, competição, desafios, rivalidade.' },
+  { id: 27, name: 'Seis de Paus', roman: '', image: 'seis_paus.png', description: 'Vitória, reconhecimento, sucesso público, confiança.' },
+  { id: 28, name: 'Sete de Paus', roman: '', image: 'sete_paus.png', description: 'Coragem, defesa, persistência, resistência.' },
+  { id: 29, name: 'Oito de Paus', roman: '', image: 'oito_paus.png', description: 'Rapidez, progresso, movimento, mensagens.' },
+  { id: 30, name: 'Nove de Paus', roman: '', image: 'nove_paus.png', description: 'Resiliência, proteção, determinação, preparo.' },
+  { id: 31, name: 'Dez de Paus', roman: '', image: 'dez_paus.png', description: 'Sobrecarga, responsabilidade, trabalho árduo, esforço.' },
+  { id: 32, name: 'Valete de Paus', roman: '', image: 'valete_paus.png', description: 'Entusiasmo, ideias novas, curiosidade, aventura.' },
+  { id: 33, name: 'Cavaleiro de Paus', roman: '', image: 'cavaleiro_paus.png', description: 'Ação, energia, paixão, impulsividade.' },
+  { id: 34, name: 'Rainha de Paus', roman: '', image: 'rainha_paus.png', description: 'Confiança, carisma, independência, determinação.' },
+  { id: 35, name: 'Rei de Paus', roman: '', image: 'rei_paus.png', description: 'Liderança, visão, coragem, autoridade inspiradora.' },
+
+  // COPAS
+  { id: 36, name: 'Ás de Copas', roman: '', image: 'as_copas.png', description: 'Novo amor, compaixão, criatividade, emoção pura.' },
+  { id: 37, name: 'Dois de Copas', roman: '', image: 'dois_copas.png', description: 'Parceria, amor, conexão emocional, harmonia.' },
+  { id: 38, name: 'Três de Copas', roman: '', image: 'tres_copas.png', description: 'Amizade, celebração, união, alegria compartilhada.' },
+  { id: 39, name: 'Quatro de Copas', roman: '', image: 'quatro_copas.png', description: 'Apatia, reflexão, insatisfação emocional.' },
+  { id: 40, name: 'Cinco de Copas', roman: '', image: 'cinco_copas.png', description: 'Perda, arrependimento, decepção, tristeza.' },
+  { id: 41, name: 'Seis de Copas', roman: '', image: 'seis_copas.png', description: 'Nostalgia, memórias, reencontros, inocência.' },
+  { id: 42, name: 'Sete de Copas', roman: '', image: 'sete_copas.png', description: 'Ilusões, escolhas, fantasia, desejos.' },
+  { id: 43, name: 'Oito de Copas', roman: '', image: 'oito_copas.png', description: 'Abandono, busca por significado, desapego.' },
+  { id: 44, name: 'Nove de Copas', roman: '', image: 'nove_copas.png', description: 'Satisfação, contentamento, gratidão, prazer.' },
+  { id: 45, name: 'Dez de Copas', roman: '', image: 'dez_copas.png', description: 'Felicidade, amor familiar, harmonia, bênçãos.' },
+  { id: 46, name: 'Valete de Copas', roman: '', image: 'valete_copas.png', description: 'Sensibilidade, imaginação, mensagens emocionais.' },
+  { id: 47, name: 'Cavaleiro de Copas', roman: '', image: 'cavaleiro_copas.png', description: 'Romance, idealismo, charme, busca emocional.' },
+  { id: 48, name: 'Rainha de Copas', roman: '', image: 'rainha_copas.png', description: 'Compaixão, empatia, intuição, amor maternal.' },
+  { id: 49, name: 'Rei de Copas', roman: '', image: 'rei_copas.png', description: 'Equilíbrio emocional, sabedoria, diplomacia.' },
+
+  // ESPADAS
+  { id: 50, name: 'Ás de Espadas', roman: '', image: 'as_espadas.png', description: 'Clareza mental, verdade, novas ideias, justiça.' },
+  { id: 51, name: 'Dois de Espadas', roman: '', image: 'dois_espadas.png', description: 'Decisão difícil, impasse, equilíbrio, escolha racional.' },
+  { id: 52, name: 'Três de Espadas', roman: '', image: 'tres_espadas.png', description: 'Coração partido, dor, separação, mágoa.' },
+  { id: 53, name: 'Quatro de Espadas', roman: '', image: 'quatro_espadas.png', description: 'Descanso, recuperação, contemplação, pausa.' },
+  { id: 54, name: 'Cinco de Espadas', roman: '', image: 'cinco_espadas.png', description: 'Conflito, derrota, tensão, autointeresse.' },
+  { id: 55, name: 'Seis de Espadas', roman: '', image: 'seis_espadas.png', description: 'Transição, mudança, viagem, superação.' },
+  { id: 56, name: 'Sete de Espadas', roman: '', image: 'sete_espadas.png', description: 'Estratégia, sigilo, engano, astúcia.' },
+  { id: 57, name: 'Oito de Espadas', roman: '', image: 'oito_espadas.png', description: 'Restrição, medo, paralisia, sensação de aprisionamento.' },
+  { id: 58, name: 'Nove de Espadas', roman: '', image: 'nove_espadas.png', description: 'Ansiedade, culpa, pesadelos, preocupação.' },
+  { id: 59, name: 'Dez de Espadas', roman: '', image: 'dez_espadas.png', description: 'Dor final, traição, fim doloroso, colapso.' },
+  { id: 60, name: 'Valete de Espadas', roman: '', image: 'valete_espadas.png', description: 'Vigilância, curiosidade, comunicação, novas ideias.' },
+  { id: 61, name: 'Cavaleiro de Espadas', roman: '', image: 'cavaleiro_espadas.png', description: 'Ação rápida, determinação, bravura, impetuosidade.' },
+  { id: 62, name: 'Rainha de Espadas', roman: '', image: 'rainha_espadas.png', description: 'Clareza mental, verdade, independência, lógica.' },
+  { id: 63, name: 'Rei de Espadas', roman: '', image: 'rei_espadas.png', description: 'Autoridade intelectual, decisão, justiça, estratégia.' },
+
+  // OUROS
+  { id: 64, name: 'Ás de Ouros', roman: '', image: 'as_ouros.png', description: 'Prosperidade, oportunidade, novo começo material.' },
+  { id: 65, name: 'Dois de Ouros', roman: '', image: 'dois_ouros.png', description: 'Equilíbrio, adaptação, administração de recursos.' },
+  { id: 66, name: 'Três de Ouros', roman: '', image: 'tres_ouros.png', description: 'Trabalho em equipe, habilidade, reconhecimento profissional.' },
+  { id: 67, name: 'Quatro de Ouros', roman: '', image: 'quatro_ouros.png', description: 'Apego, segurança financeira, controle, estabilidade.' },
+  { id: 68, name: 'Cinco de Ouros', roman: '', image: 'cinco_ouros.png', description: 'Dificuldades financeiras, exclusão, perda temporária.' },
+  { id: 69, name: 'Seis de Ouros', roman: '', image: 'seis_ouros.png', description: 'Generosidade, ajuda, equilíbrio entre dar e receber.' },
+  { id: 70, name: 'Sete de Ouros', roman: '', image: 'sete_ouros.png', description: 'Paciência, colheita, resultados a longo prazo.' },
+  { id: 71, name: 'Oito de Ouros', roman: '', image: 'oito_ouros.png', description: 'Aprendizado, dedicação, aprimoramento de habilidades.' },
+  { id: 72, name: 'Nove de Ouros', roman: '', image: 'nove_ouros.png', description: 'Independência financeira, luxo, realização pessoal.' },
+  { id: 73, name: 'Dez de Ouros', roman: '', image: 'dez_ouros.png', description: 'Estabilidade, legado, riqueza familiar, sucesso duradouro.' },
+  { id: 74, name: 'Valete de Ouros', roman: '', image: 'valete_ouros.png', description: 'Aprendizagem, novas oportunidades, foco em metas.' },
+  { id: 75, name: 'Cavaleiro de Ouros', roman: '', image: 'cavaleiro_ouros.png', description: 'Responsabilidade, rotina, trabalho constante, confiança.' },
+  { id: 76, name: 'Rainha de Ouros', roman: '', image: 'rainha_ouros.png', description: 'Cuidado, estabilidade, prosperidade, segurança doméstica.' },
+  { id: 77, name: 'Rei de Ouros', roman: '', image: 'rei_ouros.png', description: 'Abundância, sucesso material, liderança, confiança sólida.' },
 ];

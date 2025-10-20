@@ -3,7 +3,7 @@
     <img src="{{ imagePathBase + card.image }}" alt="{{ card.name }}" title="{{ card.name }}">
   </div>
   <div class="card-name">{{ card.name | uppercase }}</div>
-  <div class="card-roman">{{ card.roman }}</div>
+  <div class="card-roman">{{ card.roman || '' }}</div>
 </div>
 
 @if (showModal) {

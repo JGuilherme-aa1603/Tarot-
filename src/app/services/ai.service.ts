@@ -10,10 +10,9 @@ export class AiService {
   private openai: OpenAI;
 
   constructor() {
-    // Inicializar cliente OpenAI com a API Key
     this.openai = new OpenAI({
       apiKey: environment.openaiApiKey,
-      dangerouslyAllowBrowser: true, // Necessário para usar no frontend (não recomendado para produção)
+      dangerouslyAllowBrowser: true,
     });
   }
 
@@ -28,15 +27,14 @@ export class AiService {
       // Construir o prompt para a IA
       const prompt = this.buildPrompt(question, cards);
 
-      // Chamar a API da OpenAI
       const response = await this.openai.chat.completions.create({
-        model: 'gpt-4o-mini', // Modelo mais barato e rápido
+        model: 'gpt-4o-mini',
         messages: [
           {
             role: 'system',
-            content: `Você é um tarólogo experiente e sábio. Sua função é interpretar cartas de tarô de forma profunda, empática e insightful. 
+            content: `Você é um tarólogo experiente e sábio. Sua função é interpretar cartas de tarô de forma profunda. 
             Faça leituras que conectem os significados das cartas com a pergunta específica do consulente. 
-            Use uma linguagem acessível mas profissional, e sempre ofereça perspectivas construtivas.`,
+            Use uma linguagem acessível mas profissional.`,
           },
           {
             role: 'user',
@@ -80,33 +78,29 @@ export class AiService {
   private buildPrompt(question: string, cards: Card[]): string {
     const cardsDescription = cards
       .map((card, index) => {
-        const position = ['Passado', 'Presente', 'Futuro'][index];
-        return `
-**Carta ${index + 1} (${position}): ${card.name} (${card.roman})**
-Significado: ${card.description}`;
+        const roman = card.roman || '(sem número)';
+        return `\n**Carta ${index + 1}: ${card.name} (${roman})**\nSignificado: ${card.description}`;
       })
       .join('\n');
 
-    return `
-Faça uma leitura de tarô para a seguinte pergunta:
+    return `Não escreva nenhuma introdução, vá direto ao formato abaixo.
+
+## Análise das 3 cartas
+
+${cardsDescription}
+
+## Resposta para a pergunta
+
+Forneça uma resposta direta e objetiva para a pergunta do consulente (1-2 parágrafos). Não inclua saudações, avisos, nem referências a "passado/presente/futuro".
 
 **Pergunta do Consulente:** "${question}"
 
-**Cartas Selecionadas (Tiragem de 3 Cartas):**
-${cardsDescription}
-
-**Instruções para a Leitura:**
-1. Interprete cada carta no contexto de sua posição (Passado, Presente, Futuro)
-2. Conecte os significados das cartas com a pergunta específica
-3. Ofereça insights práticos e construtivos
-4. Use uma estrutura clara: introdução, análise de cada carta, síntese final
-5. Mantenha um tom empático e encorajador
-6. Seja específico ao relacionar as cartas com a situação perguntada
-
-Formato esperado:
-- Um parágrafo introdutório
-- Análise de cada carta (2-3 parágrafos)
-- Conclusão com síntese e orientação (1-2 parágrafos)
+Instruções adicionais:
+- Para cada carta, escreva um subtítulo em negrito com o nome da carta (por exemplo: **Carta 1: Louco (0)**) e depois a análise (1-2 parágrafos).
+- Mantenha a linguagem clara, prática e específica ao contexto da pergunta.
+- Não adicione uma seção de introdução; comece já com "## Análise das 3 cartas".
+- Termine com a seção "## Resposta para a pergunta" contendo a conclusão.
+- Leve mais em consideração a interpretação das cartas, de acordo com a pergunta, do que seus significados.
 `;
   }
 }

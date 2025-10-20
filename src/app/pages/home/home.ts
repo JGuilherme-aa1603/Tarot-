@@ -24,11 +24,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.allCards = this.cardService.getAllCards();
+    // Embaralhar as cartas automaticamente ao carregar
+    this.shuffleCardsAutomatic();
   }
 
   onContinue() {
     if (this.question.trim().length > 0) {
       this.showCardSelection = true;
+      // Embaralhar novamente quando exibir a seleção de cartas
+      this.shuffleCardsAutomatic();
     }
   }
 
@@ -81,5 +85,17 @@ export class HomeComponent implements OnInit {
         this.isShuffling = false;
       }, 1000);
     }, 100);
+  }
+
+  /**
+   * Embaralha as cartas automaticamente sem animação visível
+   */
+  private shuffleCardsAutomatic() {
+    const shuffled = [...this.allCards];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    this.allCards = shuffled;
   }
 }
