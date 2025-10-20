@@ -1,19 +1,54 @@
-<div class="home-container">
-  <h1 class="page-title">Tarô</h1>
+<div class="landing">
+  @if (!showCardSelection) {
+    <h1>Bem-vindo ao Tarô</h1>
+    <p>Faça sua pergunta e escolha 3 cartas para revelar sua resposta.</p>
 
-  <div class="search-box"> <input 
-      type="text" 
-      placeholder="Buscar carta (ex: Imperatriz, Louco...)" 
-      [(ngModel)]="searchTerm" 
-      (ngModelChange)="onSearch()"
-      class="search-input" >
-  </div>
+    <div class="question-container">
+      <input
+        type="text"
+        [(ngModel)]="question"
+        placeholder="Digite sua pergunta aqui..."
+        class="question-input"
+        maxlength="200"
+      />
+      <p class="hint">Concentre-se na sua pergunta antes de escolher as cartas</p>
 
-  <div class="card-grid">
-    @for (card of filteredCards; track card.id) {
-      <app-card-item [card]="card" />
-    } @empty {
-      <p class="no-results">Nenhuma carta encontrada com o termo "{{ searchTerm }}"</p>
-    }
-  </div>
+      @if (question.trim().length > 0) {
+      <button class="continue-btn" (click)="onContinue()">Continuar</button>
+      }
+    </div>
+
+    <a href="/cartas" class="link">Conheça as Cartas</a>
+  } @if (showCardSelection) {
+    <div class="selection-container">
+      <h2>Escolha 3 cartas</h2>
+      <p class="question-display">"{{ question }}"</p>
+      <p class="selection-hint">Cartas selecionadas: {{ selectedCards.length }}/3</p>
+
+      <button class="shuffle-btn" (click)="shuffleCards()" [disabled]="isShuffling">
+        {{ isShuffling ? 'Embaralhando...' : 'Embaralhar Cartas' }}
+      </button>
+
+      <div class="card-grid" [class.shuffling]="isShuffling">
+        @for (card of allCards; track card.id) {
+        <div
+          class="card-item"
+          [class.selected]="isCardSelected(card)"
+          [class.disabled]="selectedCards.length >= 3 && !isCardSelected(card)"
+          [class.shuffle-animation]="isShuffling"
+          (click)="selectCard(card)"
+        >
+          <img src="tarot/verso.jpg" alt="Verso da carta" />
+          @if (isCardSelected(card)) {
+          <div class="selection-badge">{{ getSelectionOrder(card) }}</div>
+          }
+        </div>
+        }
+      </div>
+
+      @if (selectedCards.length === 3) {
+      <button class="result-btn" (click)="onViewResult()">Ver Resultado</button>
+      }
+    </div>
+  }
 </div>
