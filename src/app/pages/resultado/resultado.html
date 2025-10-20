@@ -32,7 +32,7 @@
       <div class="cards-grid">
         @for (card of selectedCards; track card.id; let i = $index) {
         <div class="card-reveal">
-          <img [src]="'tarot/' + card.image" [alt]="card.name" />
+          <img [src]="'tarot/' + card.image" alt={{card.name}} />
           <div class="card-info">
             <span class="position-label">{{ getCardPosition(i) }}</span>
             <h3>{{ card.name }}</h3>
