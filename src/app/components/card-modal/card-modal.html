@@ -1,0 +1,17 @@
+<div class="modal-backdrop" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>{{ card.name }}</h2>
+      <button class="close-button" (click)="onClose()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-image">
+        <img src="{{ imagePathBase + card.image }}" alt="{{ card.name }}">
+      </div>
+      <div class="modal-description">
+        <p><strong>Número:</strong> {{ card.roman }}</p>
+        <p><strong>Palavras Chaves:</strong> {{ card.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
