@@ -6,58 +6,53 @@
 
   <!-- Loading -->
   @if (isLoading) {
-    <div class="loading-container">
-      <div class="spinner"></div>
-      <p>Consultando as cartas...</p>
-      <p class="loading-hint">A sabedoria ancestral está sendo revelada...</p>
-    </div>
+  <div class="loading-container">
+    <div class="spinner"></div>
+    <p>Consultando as cartas...</p>
+    <p class="loading-hint">A sabedoria ancestral está sendo revelada...</p>
+  </div>
   }
 
   <!-- Erro -->
   @if (error && !isLoading) {
-    <div class="error-container">
-      <div class="error-icon">⚠️</div>
-      <h2>Algo deu errado</h2>
-      <p>{{ error }}</p>
-      <button class="retry-btn" (click)="generateReading()">
-        Tentar Novamente
-      </button>
-    </div>
+  <div class="error-container">
+    <div class="error-icon">⚠️</div>
+    <h2>Algo deu errado</h2>
+    <p>{{ error }}</p>
+    <button class="retry-btn" (click)="generateReading()">Tentar Novamente</button>
+  </div>
   }
 
   <!-- Resultado -->
   @if (!isLoading && !error && reading) {
-    <div class="content">
-      <!-- Cartas Reveladas -->
-      <div class="cards-section">
-        <h2>As Cartas Reveladas</h2>
-        <div class="cards-grid">
-          @for (card of selectedCards; track card.id; let i = $index) {
-            <div class="card-reveal">
-              <img [src]="'tarot/' + card.image" [alt]="card.name" />
-              <div class="card-info">
-                <span class="position-label">{{ getCardPosition(i) }}</span>
-                <h3>{{ card.name }}</h3>
-                <p class="card-number">{{ card.roman }}</p>
-              </div>
-            </div>
-          }
+  <div class="content">
+    <!-- Cartas Reveladas -->
+    <div class="cards-section">
+      <h2>As Cartas Reveladas</h2>
+      <div class="cards-grid">
+        @for (card of selectedCards; track card.id; let i = $index) {
+        <div class="card-reveal">
+          <img [src]="'tarot/' + card.image" [alt]="card.name" />
+          <div class="card-info">
+            <span class="position-label">{{ getCardPosition(i) }}</span>
+            <h3>{{ card.name }}</h3>
+            <p class="card-number">{{ card.roman }}</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Interpretação -->
-      <div class="interpretation-section">
-        <h2>Interpretação</h2>
-        <div class="interpretation-content" [innerHTML]="reading | markdownToHtml">
-        </div>
-      </div>
-
-      <!-- Botão Nova Leitura -->
-      <div class="actions">
-        <button class="new-reading-btn" (click)="onNewReading()">
-          Nova Leitura
-        </button>
+        }
       </div>
     </div>
+
+    <!-- Interpretação -->
+    <div class="interpretation-section">
+      <h2>Interpretação</h2>
+      <div class="interpretation-content" [innerHTML]="reading | markdownToHtml"></div>
+    </div>
+
+    <!-- Botão Nova Leitura -->
+    <div class="actions">
+      <button class="new-reading-btn" (click)="onNewReading()">Nova Leitura</button>
+    </div>
+  </div>
   }
 </div>

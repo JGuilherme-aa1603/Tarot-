@@ -12,66 +12,56 @@ import { Card } from '../../data/tarot-cards';
   template: `
     <div class="landing">
       @if (!showCardSelection) {
-        <h1>Bem-vindo ao Tarô</h1>
-        <p>Faça sua pergunta e escolha 3 cartas para revelar sua resposta.</p>
-        
-        <div class="question-container">
-          <input 
-            type="text" 
-            [(ngModel)]="question"
-            placeholder="Digite sua pergunta aqui..."
-            class="question-input"
-            maxlength="200"
-          />
-          <p class="hint">Concentre-se na sua pergunta antes de escolher as cartas</p>
-          
-          @if (question.trim().length > 0) {
-            <button class="continue-btn" (click)="onContinue()">
-              Continuar
-            </button>
-          }
-        </div>
+      <h1>Bem-vindo ao Tarô</h1>
+      <p>Faça sua pergunta e escolha 3 cartas para revelar sua resposta.</p>
 
-        <a href="/cartas" class="link">Conheça as Cartas</a>
-      }
+      <div class="question-container">
+        <input
+          type="text"
+          [(ngModel)]="question"
+          placeholder="Digite sua pergunta aqui..."
+          class="question-input"
+          maxlength="200"
+        />
+        <p class="hint">Concentre-se na sua pergunta antes de escolher as cartas</p>
 
-      @if (showCardSelection) {
-        <div class="selection-container">
-          <h2>Escolha 3 cartas</h2>
-          <p class="question-display">"{{ question }}"</p>
-          <p class="selection-hint">Cartas selecionadas: {{ selectedCards.length }}/3</p>
+        @if (question.trim().length > 0) {
+        <button class="continue-btn" (click)="onContinue()">Continuar</button>
+        }
+      </div>
 
-          <button 
-            class="shuffle-btn" 
-            (click)="shuffleCards()"
-            [disabled]="isShuffling"
+      <a href="/cartas" class="link">Conheça as Cartas</a>
+      } @if (showCardSelection) {
+      <div class="selection-container">
+        <h2>Escolha 3 cartas</h2>
+        <p class="question-display">"{{ question }}"</p>
+        <p class="selection-hint">Cartas selecionadas: {{ selectedCards.length }}/3</p>
+
+        <button class="shuffle-btn" (click)="shuffleCards()" [disabled]="isShuffling">
+          {{ isShuffling ? 'Embaralhando...' : 'Embaralhar Cartas' }}
+        </button>
+
+        <div class="card-grid" [class.shuffling]="isShuffling">
+          @for (card of allCards; track card.id) {
+          <div
+            class="card-item"
+            [class.selected]="isCardSelected(card)"
+            [class.disabled]="selectedCards.length >= 3 && !isCardSelected(card)"
+            [class.shuffle-animation]="isShuffling"
+            (click)="selectCard(card)"
           >
-            {{ isShuffling ? 'Embaralhando...' : 'Embaralhar Cartas' }}
-          </button>
-
-          <div class="card-grid" [class.shuffling]="isShuffling">
-            @for (card of allCards; track card.id) {
-              <div 
-                class="card-item"
-                [class.selected]="isCardSelected(card)"
-                [class.disabled]="selectedCards.length >= 3 && !isCardSelected(card)"
-                [class.shuffle-animation]="isShuffling"
-                (click)="selectCard(card)"
-              >
-                <img src="tarot/verso.jpg" alt="Verso da carta" />
-                @if (isCardSelected(card)) {
-                  <div class="selection-badge">{{ getSelectionOrder(card) }}</div>
-                }
-              </div>
+            <img src="tarot/verso.jpg" alt="Verso da carta" />
+            @if (isCardSelected(card)) {
+            <div class="selection-badge">{{ getSelectionOrder(card) }}</div>
             }
           </div>
-
-          @if (selectedCards.length === 3) {
-            <button class="result-btn" (click)="onViewResult()">
-              Ver Resultado
-            </button>
           }
         </div>
+
+        @if (selectedCards.length === 3) {
+        <button class="result-btn" (click)="onViewResult()">Ver Resultado</button>
+        }
+      </div>
       }
     </div>
   `,
@@ -309,10 +299,7 @@ export class HomeComponent implements OnInit {
   isShuffling: boolean = false;
   shuffleCount: number = 0;
 
-  constructor(
-    private cardService: CardService,
-    private router: Router
-  ) {}
+  constructor(private cardService: CardService, private router: Router) {}
 
   ngOnInit(): void {
     this.allCards = this.cardService.getAllCards();
@@ -325,8 +312,8 @@ export class HomeComponent implements OnInit {
   }
 
   selectCard(card: Card) {
-    const index = this.selectedCards.findIndex(c => c.id === card.id);
-    
+    const index = this.selectedCards.findIndex((c) => c.id === card.id);
+
     if (index > -1) {
       // Carta já selecionada, remover
       this.selectedCards.splice(index, 1);
@@ -337,11 +324,11 @@ export class HomeComponent implements OnInit {
   }
 
   isCardSelected(card: Card): boolean {
-    return this.selectedCards.some(c => c.id === card.id);
+    return this.selectedCards.some((c) => c.id === card.id);
   }
 
   getSelectionOrder(card: Card): number {
-    const index = this.selectedCards.findIndex(c => c.id === card.id);
+    const index = this.selectedCards.findIndex((c) => c.id === card.id);
     return index > -1 ? index + 1 : 0;
   }
 
@@ -350,15 +337,15 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/resultado'], {
       state: {
         question: this.question,
-        cards: this.selectedCards
-      }
+        cards: this.selectedCards,
+      },
     });
   }
 
   shuffleCards() {
     this.isShuffling = true;
     this.shuffleCount++;
-    
+
     // Embaralhar o array de cartas usando Fisher-Yates
     setTimeout(() => {
       const shuffled = [...this.allCards];
@@ -367,7 +354,7 @@ export class HomeComponent implements OnInit {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
       this.allCards = shuffled;
-      
+
       // Desabilitar animação após 1 segundo
       setTimeout(() => {
         this.isShuffling = false;

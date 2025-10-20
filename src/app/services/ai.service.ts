@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 import { Card } from '../data/tarot-cards';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AiService {
   private openai: OpenAI;
@@ -13,7 +13,7 @@ export class AiService {
     // Inicializar cliente OpenAI com a API Key
     this.openai = new OpenAI({
       apiKey: environment.openaiApiKey,
-      dangerouslyAllowBrowser: true // Necessário para usar no frontend (não recomendado para produção)
+      dangerouslyAllowBrowser: true, // Necessário para usar no frontend (não recomendado para produção)
     });
   }
 
@@ -36,29 +36,29 @@ export class AiService {
             role: 'system',
             content: `Você é um tarólogo experiente e sábio. Sua função é interpretar cartas de tarô de forma profunda, empática e insightful. 
             Faça leituras que conectem os significados das cartas com a pergunta específica do consulente. 
-            Use uma linguagem acessível mas profissional, e sempre ofereça perspectivas construtivas.`
+            Use uma linguagem acessível mas profissional, e sempre ofereça perspectivas construtivas.`,
           },
           {
             role: 'user',
-            content: prompt
-          }
+            content: prompt,
+          },
         ],
         temperature: 0.8, // Criatividade moderada
         max_tokens: 800, // Limite de tokens para a resposta
         top_p: 1,
         frequency_penalty: 0.3,
-        presence_penalty: 0.3
+        presence_penalty: 0.3,
       });
 
       // Extrair e retornar a resposta
-      const reading = response.choices[0]?.message?.content || 
+      const reading =
+        response.choices[0]?.message?.content ||
         'Desculpe, não foi possível gerar a leitura no momento. Tente novamente.';
 
       return reading;
-
     } catch (error: any) {
       console.error('❌ Erro ao gerar leitura:', error);
-      
+
       // Tratar erros específicos
       if (error.status === 401) {
         throw new Error('API Key inválida. Verifique sua configuração.');
@@ -67,7 +67,9 @@ export class AiService {
       } else if (error.status === 500) {
         throw new Error('Erro no servidor da OpenAI. Tente novamente em alguns instantes.');
       } else {
-        throw new Error(`Erro ao conectar com o serviço de IA: ${error.message || 'Verifique sua conexão.'}`);
+        throw new Error(
+          `Erro ao conectar com o serviço de IA: ${error.message || 'Verifique sua conexão.'}`
+        );
       }
     }
   }
@@ -76,12 +78,14 @@ export class AiService {
    * Constrói o prompt que será enviado para a IA
    */
   private buildPrompt(question: string, cards: Card[]): string {
-    const cardsDescription = cards.map((card, index) => {
-      const position = ['Passado', 'Presente', 'Futuro'][index];
-      return `
+    const cardsDescription = cards
+      .map((card, index) => {
+        const position = ['Passado', 'Presente', 'Futuro'][index];
+        return `
 **Carta ${index + 1} (${position}): ${card.name} (${card.roman})**
 Significado: ${card.description}`;
-    }).join('\n');
+      })
+      .join('\n');
 
     return `
 Faça uma leitura de tarô para a seguinte pergunta:

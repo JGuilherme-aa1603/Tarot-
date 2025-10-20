@@ -3,12 +3,14 @@
 ## Como configurar
 
 1. **Obtenha sua API Key:**
+
    - Acesse: https://platform.openai.com/api-keys
    - Crie uma conta ou faça login
    - Clique em "Create new secret key"
    - Copie a chave (ela começa com `sk-proj-...`)
 
 2. **Configure no projeto:**
+
    - Abra o arquivo `src/environments/environment.ts`
    - Substitua `'SUA_API_KEY_AQUI'` pela sua chave real
    - Exemplo: `openaiApiKey: 'sk-proj-abc123...'`
@@ -28,6 +30,7 @@
 ## Alternativas Gratuitas (para testes)
 
 Se não quiser gastar agora, pode usar:
+
 - Mock/Simulação (respostas pré-definidas)
 - Modelos locais (Ollama + Llama)
 - Créditos gratuitos da OpenAI (novos usuários ganham $5)

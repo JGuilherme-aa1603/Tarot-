@@ -10,7 +10,7 @@ import { MarkdownToHtmlPipe } from '../../pipes/markdown-to-html.pipe';
   standalone: true,
   imports: [CommonModule, MarkdownToHtmlPipe],
   templateUrl: './resultado.html',
-  styleUrl: './resultado.css'
+  styleUrl: './resultado.css',
 })
 export class ResultadoComponent implements OnInit {
   question: string = '';
@@ -27,7 +27,7 @@ export class ResultadoComponent implements OnInit {
     // Obter dados passados pela navegação
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state as { question: string; cards: Card[] };
-    
+
     if (state) {
       this.question = state.question;
       this.selectedCards = state.cards;
@@ -48,13 +48,12 @@ export class ResultadoComponent implements OnInit {
       this.isLoading = true;
       this.error = '';
       this.cdr.detectChanges();
-      
+
       // Chamar o serviço de IA
       this.reading = await this.aiService.generateReading(this.question, this.selectedCards);
-      
+
       this.isLoading = false;
       this.cdr.detectChanges();
-      
     } catch (error: any) {
       console.error('Erro ao gerar leitura:', error);
       this.isLoading = false;

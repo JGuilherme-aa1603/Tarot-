@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'markdownToHtml',
-  standalone: true
+  standalone: true,
 })
 export class MarkdownToHtmlPipe implements PipeTransform {
   transform(value: string): string {
@@ -23,16 +23,19 @@ export class MarkdownToHtmlPipe implements PipeTransform {
     html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
 
     // Converter quebras de linha duplas em parágrafos
-    html = html.split('\n\n').map(paragraph => {
-      if (paragraph.trim()) {
-        // Se já não for um h2/h3, envolver em <p>
-        if (!paragraph.trim().startsWith('<h')) {
-          return `<p>${paragraph.trim()}</p>`;
+    html = html
+      .split('\n\n')
+      .map((paragraph) => {
+        if (paragraph.trim()) {
+          // Se já não for um h2/h3, envolver em <p>
+          if (!paragraph.trim().startsWith('<h')) {
+            return `<p>${paragraph.trim()}</p>`;
+          }
+          return paragraph;
         }
-        return paragraph;
-      }
-      return '';
-    }).join('');
+        return '';
+      })
+      .join('');
 
     // Converter quebras de linha simples em <br>
     html = html.replace(/\n/g, '<br>');

@@ -43,7 +43,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-container p {
@@ -204,7 +206,9 @@
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 .interpretation-section h2 {
@@ -256,7 +260,7 @@
 .interpretation-content br {
   display: block;
   margin: 8px 0;
-  content: "";
+  content: '';
 }
 
 /* Actions */
@@ -290,11 +294,11 @@
   .cards-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .interpretation-section {
     padding: 25px;
   }
-  
+
   .interpretation-content {
     font-size: 16px;
   }
