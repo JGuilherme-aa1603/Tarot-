@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router'; 
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [RouterLink],
   templateUrl: './header.html',
-  styleUrl: './header.css' 
+  styleUrl: './header.css',
 })
 export class HeaderComponent {
   appName = 'Tarô';
 }
+
+// Alias para compatibilidade com testes existentes
+export const Header = HeaderComponent;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header'; 
+import { HeaderComponent } from './components/header/header';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +12,11 @@ import { HeaderComponent } from './components/header/header';
       <router-outlet />
     </main>
   `,
-  styleUrl: './app.css' // <-- MUDANÇA: .css
+  styleUrl: './app.css', // <-- MUDANÇA: .css
 })
 export class AppComponent {
   title = 'tarodigital';
 }
+
+// Alias para compatibilidade com testes existentes
+export const App = AppComponent;
